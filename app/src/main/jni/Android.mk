@@ -80,6 +80,26 @@ include $(BUILD_EXECUTABLE)
 ################################
 include $(CLEAR_VARS)
 
+LOCAL_MODULE    := crashCheck
+LOCAL_SRC_FILES := crash_check.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := crashCheck-pie
+LOCAL_SRC_FILES := crash_check.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
 LOCAL_MODULE    := stagefright
 LOCAL_SRC_FILES := stage_fright.c
 
@@ -136,6 +156,17 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphicsbufferoverflowcheck-pie
+LOCAL_SRC_FILES := graphics_into_overflow_test.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_EXECUTABLE)
+################################
 
 ################################
 include $(CLEAR_VARS)
@@ -161,3 +192,14 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_EXECUTABLE)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := libutilcheck-pie
+LOCAL_SRC_FILES := libutils_bug.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_EXECUTABLE)
+################################

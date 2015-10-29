@@ -1,4 +1,7 @@
 #Android Vulnerability Test Suite
+
+Download the official VTS for Android app from Google Play [here](https://play.google.com/store/apps/details?id=com.nowsecure.android.vts).
+
 ## Overview
 This tool was meant to show the end user the attack surface that a given device is susceptible to.  In implementing these checks we attempt to minimize or eliminate both false positives/false negatives without negatively affecting system stability.
 
@@ -29,4 +32,8 @@ A list of current bug checks:
 ## Previous work
 There have been attempts before to solve this issue. [xray.io](http://www.xray.io/)  Xray works by actually attempting the exploit which doesn't satisfy our system stability constraint. There also exist other applications which attempt to determine a devices attack surface by simply using a lookup based on Android verison/build information.  This causes both false negatives and false positives.  Imagine the case where an OEM has back ported a fix to a device, but the check solely relies on an Android device; false positive.  The case where an OEM upgrades to an Android version/kernel version which includes patches, but manages to break them causes the case of a false negative.
 
-![Device Vulnerability Screenshot](https://camo.githubusercontent.com/0bd65d02a1c25e3a98e2b00657bf3dc3d301228e/68747470733a2f2f692e696d6775722e636f6d2f5670537638316a2e706e67)
+![Device Vulnerability Screenshot](screenshots/screenshot.png)
+
+## Contributions
+
+Some parts of VTS require that native executables be used.  Currently the build system does not support this.  If your contribution requires rebuilding of these assets, please denote this in the pull req and I will build the asset after merging the PR.
